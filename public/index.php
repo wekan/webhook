@@ -37,12 +37,15 @@ $webhook['description']
 // Showing product name that is from WeKan Outgoig Webhook to PHP Webhook
 //file_put_contents('php://stdout', 'Webhook received: ' . print_r($webhook['card'], true) . "\r\n");
 
+// Show all from webhook
+file_put_contents('php://stdout', 'Webhook received: ' . print_r($webhook, true) . "\r\n");
+
 // PHP calls WeKan API with Python api.py that is from https://github.com/wekan/wekan
 $execoutput=null;
 $execretval=null;
-exec('python3 /home/wekan/repos/webhook-php/public/api.py boards SbnWgDFqJhCFN9Yjw', $execoutput, $execretval);
+//exec('python3 /home/wekan/repos/webhook-php/public/api.py boards SbnWgDFqJhCFN9Yjw', $execoutput, $execretval);
 // Showing list of boards from WeKan API
-file_put_contents('php://stdout', 'Webhook received: ' . print_r($execoutput, true) . "\r\n");
+//file_put_contents('php://stdout', 'Webhook received: ' . print_r($execoutput, true) . "\r\n");
 
 // Return 200 OK to WeKan Outgoing Webhook
 header("HTTP/1.1 200 OK");
